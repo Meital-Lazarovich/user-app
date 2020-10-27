@@ -2,12 +2,17 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: almoni-neue-dl;
+  color: $clr1;
+}
+
 body {
   margin: 0;
+  direction: rtl;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 

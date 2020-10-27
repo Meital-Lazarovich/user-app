@@ -1,5 +1,5 @@
 // SETUP
-@import 'setup/typography';
+@import url(https://cdn.d.greeninvoice.co.il/assets/web-app/2.2.331/components/webfonts/all.min.css);
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
@@ -10,7 +10,9 @@
 @import 'basics/layout';
 
 // VIEWS 
+@import 'views/login';
 
 // COMPONENTS
+@import 'components/header'
 
 
