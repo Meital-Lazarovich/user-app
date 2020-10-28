@@ -1,0 +1,48 @@
+.welcome {
+    @include basic-padding;
+    h2 {
+        font-size: rem(40px);
+        margin-bottom: rem(40px);
+    }
+    h3 {
+        font-size: rem(25px);
+        font-weight: normal;
+        margin-bottom: rem(80px);
+        span {
+            font-weight: bold;
+        }
+    }
+    div {
+        a {
+            text-decoration: none;
+            @include action-btn;
+            margin-left: rem(20px);
+        }
+        button {
+            @include basic-btn;
+            &:hover {
+                background-color: #e6e6e6;
+            }
+        }
+    }
+    @media (max-width: 800px) {
+        h3 span {
+            display: block;
+        }
+
+    }
+    @media (max-width: $break-narrow) {
+        text-align: center;
+        div {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: rem(125px);
+            a,
+            button {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+}

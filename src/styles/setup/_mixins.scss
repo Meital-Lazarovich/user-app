@@ -1,21 +1,29 @@
-/* Media queries breakpoint mixins */
-
-// @mixin for-narrow-layout {
-//     @media (max-width: $break-narrow) {
-//         @content;
-//     }
-// }
-
-// @mixin for-med-layout {
-//     @media (max-width: $break-med) {
-//         @content;
-//     }
-// }
-
-/* -------------------------------- */
-
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin basic-btn {
+    @include flex-center;
+    font-weight: bold;
+    font-size: rem(16px);
+    border-radius: rem(100px);
+    height: rem(56px);
+    width: rem(100px);
+    transition: backgroundColor, 0.3s;
+}
+
+@mixin action-btn {
+    @include basic-btn;
+    width: rem(228px);
+    background-color: $clr3;
+    color: $clr4;
+    &:hover {
+        background-color: darken($clr3, 5);
+    }
+}
+
+@mixin basic-padding {
+    padding: rem(50px) rem(70px);
 }

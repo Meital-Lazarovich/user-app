@@ -1,0 +1,23 @@
+.user-info {
+    @include basic-padding;
+
+    & > div {
+        margin-bottom: rem(80px);
+        h2 {
+            margin-bottom: rem(20px);
+        }
+        .data, h3 {
+            margin-bottom: rem(15px);
+            .field {
+                color: $clr5;
+                margin-bottom: rem(5px);
+            }
+        }
+        &:first-child {
+            margin-left: rem(150px);
+        }
+    }
+    .businesses {
+        width: 100%;
+    }
+}

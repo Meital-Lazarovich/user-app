@@ -44,23 +44,20 @@
                 font-size: rem(14px);
             }
             button {
-                border-radius: rem(100px);
-                height: rem(56px);
                 margin-bottom: rem(40px);
-                font-size: rem(16px);
-                font-weight: bold;
-                @include flex-center;
                 &.submit-btn {
-                    width: rem(228px);
-                    background-color: $clr3;
-                    color: $clr4;
+                    @include action-btn;
                 }
                 &.google-btn {
+                    @include basic-btn;
                     flex-grow: 1;
                     margin-right: rem(20px);
                     color: $clr2;
                     background-color: $clr4;
                     border: rem(1px) solid $clr2;
+                    &:hover {
+                        background-color: darken($clr4, 5);
+                    }
                     img {
                         width: rem(24px);
                         margin-right: rem(12px);

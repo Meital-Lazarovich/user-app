@@ -13,7 +13,7 @@ export default new Vuex.Store({
   getters: {
     loggedinUser(state) {
       return state.loggedinUser;
-    },
+    }
   },
   mutations: {
     setUser(state, { user }) {
