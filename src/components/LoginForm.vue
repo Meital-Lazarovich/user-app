@@ -1,15 +1,29 @@
 <template>
     <section class="login-form">
         <h2>היי, טוב לראות אותך</h2>
-        <form>
+        <form @submit.prevent="login">
             <div>
-                <input type="email" name="email" placeholder="מייל" />
+                <input
+                    v-model="email"
+                    required
+                    type="email"
+                    name="email"
+                    placeholder="מייל"
+                    ref="email"
+                />
                 <p>כתובת המייל איתה נרשמת לחשבונית ירוקה</p>
             </div>
             <div class="password">
-                <input type="password" name="password" placeholder="סיסמה" />
+                <input
+                    v-model="password"
+                    required
+                    type="password"
+                    name="password"
+                    placeholder="סיסמה"
+                />
                 <a href="#">שכחת סיסמה?</a>
             </div>
+            <p class="err-msg" v-if="isWrongCred">מייל או סיסמה לא נכונים</p>
             <div class="actions">
                 <div class="btns flex">
                     <button type="submit" class="submit-btn">כניסה</button>
@@ -26,3 +40,26 @@
         </form>
     </section>
 </template>
+
+<script>
+export default {
+    props: {
+        isWrongCred: Boolean
+    },
+    mounted() {
+        this.$refs.email.focus();
+    },
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
+    methods: {
+        login() {
+            const { email, password } = this
+            this.$emit('login', { email, password })
+        }
+    }
+}
+</script>

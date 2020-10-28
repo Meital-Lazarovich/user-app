@@ -1,15 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { userService } from '../services/userService'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    loggedinUser: null
+  },
+  getters: {
+    loggedinUser(state) {
+      if (state.loggedinUser) SocketService.emit("room", state.loggedinUser._id);
+      return state.loggedinUser;
+    },
   },
   mutations: {
+    setUser(state, { user }) {
+      state.loggedinUser = user;
+    },
   },
   actions: {
-  },
-  modules: {
+    async login(context, { credentials }) {
+      const user = await userService.login(credentials);
+      context.commit({ type: 'setUser', user });
+      return user;
+    },
+    async logout(context) {
+      await userService.logout()
+      context.commit({ type: 'setUser', user: null })
+    },
   }
 })
