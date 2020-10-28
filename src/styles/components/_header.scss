@@ -3,4 +3,7 @@
     img {
         height: rem(34px)
     }
+    @media (max-width: $break-med) {
+        padding: rem(38px) rem(25px);
+    }
 }
