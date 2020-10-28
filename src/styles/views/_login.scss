@@ -67,14 +67,22 @@
                     }
                 }
             }
-            .err-msg {
-                color: red;
-            }
             .register-msg {
                 color: $clr2;
                 font-size: rem(18px);
             }
         }
+    }
+    .login-err {
+        background: #ee6161;
+        color: $clr4;
+        width: 200px;
+        height: 50px;
+        position: fixed;
+        @include flex-center;
+        bottom: 20px;
+        left: 50%;
+        margin-left: -100px;
     }
     @media (max-width: 1300px) {
         padding-top: rem(40px);

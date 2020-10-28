@@ -4,13 +4,14 @@ import { userService } from '../services/userService'
 
 Vue.use(Vuex)
 
+const localLoggedinUser = userService.loadUser()
+
 export default new Vuex.Store({
   state: {
-    loggedinUser: null
+    loggedinUser: localLoggedinUser
   },
   getters: {
     loggedinUser(state) {
-      if (state.loggedinUser) SocketService.emit("room", state.loggedinUser._id);
       return state.loggedinUser;
     },
   },

@@ -1,8 +1,9 @@
 <template>
     <section class="login flex">
         <div class="login-background"></div>
-        <LoginForm @login="login" :isWrongCred="isWrongCred" />
+        <LoginForm @login="login" />
         <LoginHero />
+        <div class="login-err" v-if="isActiveErr">מייל או סיסמה לא נכונים</div>
     </section>
 </template>
 
@@ -12,7 +13,7 @@ import LoginForm from '../components/LoginForm'
 export default {
     data() {
         return {
-            isWrongCred: false
+            isActiveErr: false
         }
     },
     created() {
@@ -21,10 +22,12 @@ export default {
     },
     methods: {
         async login(credentials) {
-            console.log('login component -> credentials', credentials);
             const user = await this.$store.dispatch({ type: 'login', credentials });
-            if (!user) this.isWrongCred = true
-            this.$router.push('/');
+            if (!user) {
+                this.isActiveErr = true;
+                setTimeout(() => this.isActiveErr = false, 1500)
+            }
+            else this.$router.push('/');
         }
     },
     components: {

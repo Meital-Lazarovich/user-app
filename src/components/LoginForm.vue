@@ -23,7 +23,6 @@
                 />
                 <a href="#">שכחת סיסמה?</a>
             </div>
-            <p class="err-msg" v-if="isWrongCred">מייל או סיסמה לא נכונים</p>
             <div class="actions">
                 <div class="btns flex">
                     <button type="submit" class="submit-btn">כניסה</button>
@@ -43,22 +42,24 @@
 
 <script>
 export default {
-    props: {
-        isWrongCred: Boolean
+    created() {
+        this.clearForm()
     },
     mounted() {
         this.$refs.email.focus();
     },
     data() {
-        return {
-            email: '',
-            password: ''
-        }
+        return {}
     },
     methods: {
         login() {
             const { email, password } = this
             this.$emit('login', { email, password })
+            this.clearForm()
+        },
+        clearForm() {
+            this.email = '';
+            this.password = '';
         }
     }
 }

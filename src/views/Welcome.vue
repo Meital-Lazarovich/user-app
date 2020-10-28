@@ -1,6 +1,7 @@
 <template>
-    <section class="welcome">
-        welcome
+    <section class="welcome" v-if="user">
+        <h2>היי {{user.firstName}}</h2>
+        <h3>זהו עמוד העסק שלך עבור {{user.businesses[0].name}}</h3>
         <button @click="logout">logout</button>
     </section>
 </template>
