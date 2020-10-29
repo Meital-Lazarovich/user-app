@@ -26,7 +26,7 @@
             <div class="actions">
                 <div class="btns flex">
                     <button type="submit" class="submit-btn">כניסה</button>
-                    <button class="google-btn pointer">
+                    <button class="google-btn pointer" disabled>
                         <span>כניסה מהירה</span>
                         <img src="../assets/imgs/Google_G.svg" alt="" />
                     </button>

@@ -1,9 +1,10 @@
 .user-info {
     @include basic-padding;
+    background-color: darken($clr4, 1%);
     .logout {
         position: absolute;
         height: rem(25px);
-        top: rem(40px);
+        top: rem(28px);
         left: rem(86px);
     }
     .grid {
@@ -32,7 +33,7 @@
     .businesses {
         width: 100%;
         padding-top: rem(50px);
-        border-top: rem(2px) solid lighten($clr5, 40%);
+        border-top: rem(2px) solid lighten($clr5, 35%);
         h2 {
             margin-bottom: rem(30px);
         }
@@ -43,7 +44,7 @@
         .title {
             padding-left: rem(40px);
             img {
-                border: rem(2px) solid lighten($clr5, 40%);
+                border: rem(2px) solid lighten($clr5, 35%);
                 background-color: $clr4;
                 border-radius: 50%;
                 width: rem(100px);
@@ -90,7 +91,7 @@
                 margin-bottom: rem(35px);
                 &:not(:first-child) {
                     padding-top: rem(50px);
-                    border-top: rem(2px) solid lighten($clr5, 40%);
+                    border-top: rem(2px) solid lighten($clr5, 35%);
                 }
                 &:nth-child(2) {
                     padding-right: 0;

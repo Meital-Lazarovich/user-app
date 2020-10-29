@@ -25,7 +25,7 @@ export default {
             const user = await this.$store.dispatch({ type: 'login', credentials });
             if (!user) {
                 this.isActiveErr = true;
-                setTimeout(() => this.isActiveErr = false, 1500)
+                setTimeout(() => this.isActiveErr = false, 2000)
             }
             else this.$router.push('/');
         }

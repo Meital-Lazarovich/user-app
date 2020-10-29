@@ -1,6 +1,6 @@
 <template>
-    <section class="user-info">
-        <img class="logout pointer" src="../assets/imgs/logout.png" alt="יציאה" title="יציאה">
+    <section class="user-info" v-if="user">
+        <img @click="logout" class="logout pointer" src="../assets/imgs/logout.png" alt="יציאה" title="יציאה">
         <div class="user grid">
             <div v-for="(section, idx) in userInfoToShow" :key="idx">
                 <h2>{{ section.title }}</h2>
