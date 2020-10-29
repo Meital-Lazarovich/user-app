@@ -3,9 +3,3 @@
         <img src="../assets/imgs/green_login_page.svg" alt="login-hero">
     </section>
 </template>
-
-<script>
-export default {
-    
-}
-</script>

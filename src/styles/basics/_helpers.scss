@@ -22,32 +22,8 @@
     flex-direction: column;
 }
 
-.clean-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .wrap {
     flex-wrap: wrap;
-}
-
-.center {
-    margin: 0 auto;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.space-around {
-    justify-content: space-around;
 }
 
 .pointer {

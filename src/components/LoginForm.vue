@@ -42,25 +42,20 @@
 
 <script>
 export default {
-    created() {
-        this.clearForm()
-    },
     mounted() {
         this.$refs.email.focus();
     },
     data() {
-        return {}
+        return {
+            email: '',
+            password: ''
+        }
     },
     methods: {
         login() {
             const { email, password } = this
             this.$emit('login', { email, password })
-            this.clearForm()
         },
-        clearForm() {
-            this.email = '';
-            this.password = '';
-        }
     }
 }
 </script>

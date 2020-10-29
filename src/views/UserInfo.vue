@@ -53,7 +53,7 @@ export default {
             return this.$store.getters.loggedinUser;
         },
         userInfoToShow() {
-            // this data stractures (userInfoToShow and businessesToShow) are allowing adding more relevant fields to the component
+            // These data stractures (userInfoToShow and businessesToShow) allow adding more relevant fields to the component
             // without the need to make changes in the template
             const { user } = this
             return [

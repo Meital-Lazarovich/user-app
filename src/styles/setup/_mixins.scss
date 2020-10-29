@@ -4,6 +4,9 @@
     align-items: center;
 }
 
+// fixed settings to make it easier to style
+// a larger-scale app
+
 @mixin basic-btn {
     @include flex-center;
     font-weight: bold;

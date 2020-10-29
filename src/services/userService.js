@@ -12,6 +12,7 @@ export const userService = {
 async function login(credentials) {
     try {
         const { data } = await axios.post(`${BASE_URL}/login`, credentials)
+        //saving the current logged in user for surviving page refresh (but not tab closure)
         sessionStorage.setItem(USER_KEY, JSON.stringify(data))
         return data
     } catch (err) {
@@ -28,7 +29,7 @@ async function logout() {
     }
 }
 
-function loadUser() {
+function loadUser() { 
     var user = sessionStorage.getItem(USER_KEY);
     return user ? JSON.parse(user) : null
 }

@@ -14,7 +14,7 @@
 export default {
     computed: {
         isBlendedHeader() {
-            // this is for making it easier to determine if the header is lined
+            // this is for making it easier to determine if the header is lined (for "regular" site views)
             const specialViewRoutes = ['Welcome', 'Login']
             return specialViewRoutes.some(route => this.$route.name === route)
         }
