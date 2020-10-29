@@ -1,20 +1,42 @@
 <template>
-    <section class="user-info flex wrap">
-        <div v-for="(section, idx) in userInfoToShow" :key="idx">
-            <h2>{{ section.title }}</h2>
-            <div class="data" v-for="(dataField, idx) in section.dataFields" :key="idx">
-                <p class="field">{{ dataField.field }}</p>
-                <p>{{ dataField.value }}</p>
+    <section class="user-info">
+        <img class="logout pointer" src="../assets/imgs/logout.png" alt="יציאה" title="יציאה">
+        <div class="user grid">
+            <div v-for="(section, idx) in userInfoToShow" :key="idx">
+                <h2>{{ section.title }}</h2>
+                <div
+                    class="data"
+                    v-for="(dataField, idx) in section.dataFields"
+                    :key="idx"
+                >
+                    <p class="field">{{ dataField.field }}</p>
+                    <p>{{ dataField.value }}</p>
+                </div>
             </div>
         </div>
         <div class="businesses">
             <h2>עסקים</h2>
-            <div v-for="business in businessInfoToShow" :key="business.id">
-                <img :src="business.logo" :alt="business.name" />
-                <h3>{{ business.name }}</h3>
-                <div class="data" v-for="(dataField, idx) in business.dataFields" :key="idx">
-                    <p class="field">{{ dataField.field }}</p>
-                    <p>{{ dataField.value }}</p>
+            <div
+                class="business grid"
+                v-for="business in businessesToShow"
+                :key="business.id"
+            >
+                <div class="title flex align-center">
+                    <img :src="business.logo" :alt="business.name" />
+                    <div>
+                        <h3>{{ business.name }}</h3>
+                        <h3>{{ business.nameEn }}</h3>
+                    </div>
+                </div>
+                <div class="flex wrap">
+                    <div
+                        class="data"
+                        v-for="(dataField, idx) in business.dataFields"
+                        :key="idx"
+                    >
+                        <p class="field">{{ dataField.field }}</p>
+                        <p>{{ dataField.value }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,6 +53,8 @@ export default {
             return this.$store.getters.loggedinUser;
         },
         userInfoToShow() {
+            // this data stractures (userInfoToShow and businessesToShow) are allowing adding more relevant fields to the component
+            // without the need to make changes in the template
             const { user } = this
             return [
                 {
@@ -44,27 +68,31 @@ export default {
                 {
                     title: 'פרטי מנוי',
                     dataFields: [
-                        { field: 'תאריך רישום', value: new Date(user.signUpDate).toLocaleDateString() },
+                        { field: 'תאריך רישום', value: new Date(user.signUpDate * 1000).toLocaleDateString('en-GB') },
                         { field: 'טלפון ליצירת קשר', value: user.phone },
-                        { field: 'מייל חשבון', value: user.email },
+                        { field: 'מייל חשבון', value: user.email},
                     ]
                 }
             ]
         },
-        businessInfoToShow() {
+        businessesToShow() {
             const { businesses } = this.user
             return businesses.map(business => {
+                const { id, name, nameEn, logo } = business;
                 return {
-                    id: business.id,
-                    name: business.name,
-                    logo: business.logo,
+                    id, name, nameEn, logo,
                     dataFields: [
                         { field: 'מספר עוסק', value: business.taxId },
-                        { field: 'כתובת', value: `${business.address}, ${business.city}` },
-                        { field: 'שם באנגלית', value: business.nameEn },
+                        { field: 'כתובת', value: `${business.address}, ${business.city}` }
                     ]
                 }
             })
+        }
+    },
+    methods: {
+        async logout() {
+            await this.$store.dispatch({ type: 'logout' });
+            this.$router.push('/login');
         }
     }
 }

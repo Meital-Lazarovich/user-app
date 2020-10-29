@@ -1,5 +1,5 @@
 <template>
-    <section class="login flex">
+    <section class="login grid">
         <div class="login-background"></div>
         <LoginForm @login="login" />
         <LoginHero />

@@ -20,10 +20,10 @@
     background-color: $clr3;
     color: $clr4;
     &:hover {
-        background-color: darken($clr3, 5);
+        background-color: darken($clr3, 5%);
     }
 }
 
 @mixin basic-padding {
-    padding: rem(50px) rem(70px);
+    padding: rem(40px) rem(90px);
 }

@@ -1,6 +1,5 @@
 .login {
     padding-top: rem(100px);
-    display: grid;
     grid-template-columns: 50% 50%;
     .login-background {
         position: fixed;
@@ -56,7 +55,7 @@
                     background-color: $clr4;
                     border: rem(1px) solid $clr2;
                     &:hover {
-                        background-color: darken($clr4, 5);
+                        background-color: darken($clr4, 5%);
                     }
                     img {
                         width: rem(24px);
@@ -81,10 +80,10 @@
         left: 50%;
         margin-left: -100px;
     }
-    @media (max-width: 1300px) {
+    @media (max-width: 1400px) {
         padding-top: rem(40px);
         .login-form {
-            margin-left: rem(50px);
+            margin-left: rem(70px);
         }
     }
     @media (max-width: $break-med) {

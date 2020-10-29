@@ -1,3 +1,7 @@
+.grid {
+    display: grid;
+}
+
 .flex {
     display: flex;
 }
@@ -46,10 +50,6 @@
     justify-content: space-around;
 }
 
-.bold {
-    font-family: Spartan-Bold;
-}
-
-.semi {
-    font-family: Spartan-Semi;
+.pointer {
+    cursor: pointer;
 }
